@@ -1,16 +1,36 @@
 package project.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="users")
 public class User {
-    private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String name;
     private String lastName;
-    private int old;
+    private String mail;
 
-    public Long getId() {
+    public User() {
+    }
+
+    public User(int id, String name, String lastName, String mail) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.mail = mail;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -30,11 +50,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public int getOld() {
-        return old;
+    public String getMail() {
+        return mail;
     }
 
-    public void setOld(int old) {
-        this.old = old;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 }
