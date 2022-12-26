@@ -1,4 +1,4 @@
-package project.Services;
+package project.services;
 
 import project.models.User;
 

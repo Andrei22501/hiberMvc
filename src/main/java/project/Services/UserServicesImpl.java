@@ -1,4 +1,4 @@
-package project.Services;
+package project.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -9,7 +9,6 @@ import project.models.User;
 import java.util.List;
 
 @Component
-@Transactional(readOnly = false)
 public class UserServicesImpl implements UserServices {
     private final UserDAO userDAO;
 
@@ -25,15 +24,15 @@ public class UserServicesImpl implements UserServices {
     public User show(int id) {
         return userDAO.show(id);
     }
-
+    @Transactional
     public void update(int id, User user) {
         userDAO.update(id, user);
     }
-
+    @Transactional
     public void delete(int id) {
         userDAO.delete(id);
     }
-
+    @Transactional
     public void save(User user) {
         userDAO.save(user);
     }
