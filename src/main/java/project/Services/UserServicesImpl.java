@@ -7,6 +7,7 @@ import project.dao.UserDAO;
 import project.models.User;
 
 import java.util.List;
+
 @Component
 @Transactional(readOnly = false)
 public class UserServicesImpl implements UserServices {
@@ -25,10 +26,15 @@ public class UserServicesImpl implements UserServices {
         return userDAO.show(id);
     }
 
+    public void update(int id, User user) {
+        userDAO.update(id, user);
+    }
+
     public void delete(int id) {
         userDAO.delete(id);
     }
-    public void save(User user){
+
+    public void save(User user) {
         userDAO.save(user);
     }
 }

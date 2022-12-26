@@ -33,6 +33,13 @@ public class UserDAOImpl implements UserDAO {
         return query.getSingleResult();
     }
 
+    public void update(int id, User user) {
+        User userUpdate = show(id);
+        userUpdate.setName(user.getName());
+        userUpdate.setLastName(user.getLastName());
+        userUpdate.setMail(user.getMail());
+    }
+
     @Override
     public void delete(int id) {
         User user = entityManager.find(User.class, id);
